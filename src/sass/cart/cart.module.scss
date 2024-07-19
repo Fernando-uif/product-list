@@ -1,0 +1,34 @@
+@import '../variables/colors.scss';
+
+.cart {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+
+    &__title {
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: $price;
+        font-size: 24px;
+        display: block;
+
+    }
+
+    &__emptyImage {
+        align-self: center;
+    }
+
+    &__emptyDescription {
+        color: $empty-cart-description;
+        text-align: center;
+        font-family: "Red Hat Text";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin: unset;
+    }
+}
