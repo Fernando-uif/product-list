@@ -6,5 +6,8 @@
     font-weight: 700;
     line-height: 120%;
     color: $title-primary;
-    margin-bottom: 32px;
+
+    &__main {
+        margin-bottom: 32px;
+    }
 }
