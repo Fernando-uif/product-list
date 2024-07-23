@@ -6,6 +6,7 @@ import { ItemTotal } from "./ItemTotal";
 export const TotalModal = () => {
   return (
     <section className={`${totalModalStyle["totalModal"]}`}>
+      <div className={`${totalModalStyle['totalModal__wrapper']}`}>
       <Icon
         name="check"
         className={`${totalModalStyle["totalModal__check"]}`}
@@ -29,6 +30,8 @@ export const TotalModal = () => {
             $46.50
           </div>
         </div>
+      </div>
+
       </div>
 
       <button className={`${totalModalStyle["totalModal__button"]}`}>

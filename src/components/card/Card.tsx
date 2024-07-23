@@ -10,9 +10,14 @@ export const Card = ({ image, category, name, price }: DessertsProps) => {
         <figure>
           <img
             className={`${style["card__image"]}`}
-            src={`./src/assets/${image.thumbnail}`}
             alt={name}
-            srcSet={`./src/assets/${image.mobile} 414w, ./src/assets/${image.tablet} 834w, ./src/assets/${image.desktop}`}
+            src={`./src/assets${image.tablet}`}
+            srcSet={`
+               ./src/assets/${image.mobile} 833w,
+              ./src/assets/${image.tablet} 1279w,
+              ./src/assets/${image.desktop} 1280w
+            `}
+            sizes="(max-width: 833px) 100vw, (max-width: 1279px) 100vw, 100vw"
           />
         </figure>
         <button className={`${style["card__button"]}`}>

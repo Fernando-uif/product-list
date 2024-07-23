@@ -1,0 +1,20 @@
+@import '../variables/colors.scss';
+
+@mixin button {
+    display: flex;
+    padding: var(--spacing-200, 16px) var(--spacing-300, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    background-color: $button-order;
+    color: $light;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    @content;
+}

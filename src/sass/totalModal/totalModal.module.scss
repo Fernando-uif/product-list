@@ -1,4 +1,5 @@
 @import '../variables/colors.scss';
+@import '../mixins/button.scss';
 
 .totalModal {
     padding: 40px 24px 24px 24px;
@@ -13,6 +14,28 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    justify-content: space-between;
+
+    @media screen and (min-width:834px) {
+        max-width: 608px;
+        height: 605px;
+        left: 0;
+        right: 0;
+        bottom: calc(100vh / 2 - 305px);
+        margin: 0 auto;
+        border-radius: 12px;
+    }
+
+    @media screen and (min-width:1280px) {
+        width: 592px;
+
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 
     &__check {
         display: block;
@@ -67,20 +90,6 @@
     }
 
     &__button {
-        display: flex;
-        padding: var(--spacing-200, 16px) var(--spacing-300, 24px);
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        align-self: stretch;
-        background-color: $button-order;
-        color: $light;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        border: none;
-        border-radius: 999px;
-        cursor: pointer;
+        @include button;
     }
 }
