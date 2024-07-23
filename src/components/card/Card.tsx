@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { formatPrice } from "../../helpers";
+import { CartProduct } from "../../interfaces";
 import { DessertsProps } from "../../interfaces/Desserts.interface";
 import style from "../../sass/card/card.module.scss";
+import { useCartStore } from "../../store/cart/cart-store";
 import Icon from "../icons/Icon";
 
-export const Card = ({ image, category, name, price }: DessertsProps) => {
+export const Card = ({ image, category, name, price, id }: DessertsProps) => {
+  const addProductToCart = useCartStore((state) => state.addProductToCart);
+  const [count, setCount] = useState(0);
+
+  const handleAddProduct = (product: CartProduct) => {
+    setCount((prev) => prev + 1);
+    
+    addProductToCart({ ...product, howMany: count, id: id ? id : "" });
+
+  };
+
   return (
     <div>
       <div className={`${style["card"]}`}>
@@ -20,7 +33,10 @@ export const Card = ({ image, category, name, price }: DessertsProps) => {
             sizes="(max-width: 833px) 100vw, (max-width: 1279px) 100vw, 100vw"
           />
         </figure>
-        <button className={`${style["card__button"]}`}>
+        <button
+          className={`${style["card__button"]}`}
+          onClick={() => handleAddProduct({ howMany: 0, name, price, id: "" })}
+        >
           <Icon name="cart" className={`${style["card__button__icon"]}`} />
           <span className={`${style["card__button__text"]}`}>Add to Cart</span>
         </button>
