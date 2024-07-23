@@ -90,6 +90,12 @@
     }
 
     &__button {
-        @include button;
+        @include button {
+            transition: transform .3s;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
     }
 }

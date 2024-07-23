@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import { DessertsProps } from "../interfaces/Desserts.interface";
 
 export const desserts: DessertsProps[] = [
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-waffle-thumbnail.jpg",
       mobile: "/image-waffle-mobile.jpg",
@@ -13,6 +15,7 @@ export const desserts: DessertsProps[] = [
     price: 6.5,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-creme-brulee-thumbnail.jpg",
       mobile: "/image-creme-brulee-mobile.jpg",
@@ -24,6 +27,7 @@ export const desserts: DessertsProps[] = [
     price: 7.0,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-macaron-thumbnail.jpg",
       mobile: "/image-macaron-mobile.jpg",
@@ -35,6 +39,7 @@ export const desserts: DessertsProps[] = [
     price: 8.0,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-tiramisu-thumbnail.jpg",
       mobile: "/image-tiramisu-mobile.jpg",
@@ -46,6 +51,7 @@ export const desserts: DessertsProps[] = [
     price: 5.5,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-baklava-thumbnail.jpg",
       mobile: "/image-baklava-mobile.jpg",
@@ -57,6 +63,7 @@ export const desserts: DessertsProps[] = [
     price: 4.0,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-meringue-thumbnail.jpg",
       mobile: "/image-meringue-mobile.jpg",
@@ -68,6 +75,7 @@ export const desserts: DessertsProps[] = [
     price: 5.0,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-cake-thumbnail.jpg",
       mobile: "/image-cake-mobile.jpg",
@@ -79,6 +87,7 @@ export const desserts: DessertsProps[] = [
     price: 4.5,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-brownie-thumbnail.jpg",
       mobile: "/image-brownie-mobile.jpg",
@@ -90,6 +99,7 @@ export const desserts: DessertsProps[] = [
     price: 4.5,
   },
   {
+    id: uuidv4(),
     image: {
       thumbnail: "/image-panna-cotta-thumbnail.jpg",
       mobile: "/image-panna-cotta-mobile.jpg",

@@ -1,5 +1,5 @@
 import { Card, Cart, Title } from "./components/";
-// import { TotalModal } from "./components/totalModal/TotalModal";
+import { TotalModal } from "./components/totalModal/TotalModal";
 
 import { desserts } from "./data/desserts";
 
@@ -27,7 +27,7 @@ function App() {
         </div>
         <Cart />
       </section>
-      {/* <TotalModal /> */}
+      <TotalModal />
     </>
   );
 }

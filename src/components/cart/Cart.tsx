@@ -7,7 +7,7 @@ export const Cart = () => {
   const [totalCart] = useState(0);
   return (
     <section className={`${style["cart"]}`}>
-      {!totalCart ? (
+      {totalCart ? (
         <div className={`${style["cart__fill"]}`}>
           <span className={`${style["cart__title"]}`}>Your Cart (7)</span>
 

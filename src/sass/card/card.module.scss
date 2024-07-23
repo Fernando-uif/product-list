@@ -85,10 +85,19 @@
         cursor: pointer;
         left: calc(50% - 80px);
         bottom: -22px;
+        transition: color .3s, border .3s, transform .3s;
+
+        &:hover {
+            color: $price;
+            border: 1px solid $price;
+            transform: translateY(-5px);
+
+    }
 
         &__icon {
             width: 20px;
             height: 20px;
+           
         }
 
         &__text {
