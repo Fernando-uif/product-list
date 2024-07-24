@@ -1,9 +1,16 @@
 import { formatPrice } from "../../helpers";
 import { CartProduct } from "../../interfaces";
 import style from "../../sass/cart/cart.module.scss";
+import { useCartStore } from "../../store/cart/cart-store";
 import Icon from "../icons/Icon";
 
-export const PreviewCart = ({ price, howMany, name }: CartProduct) => {
+export const PreviewCart = ({ price, howMany, name, id = "" }: CartProduct) => {
+  const removeItem = useCartStore((state) => state.removeProductCart);
+
+  const handleRemoveItem = (id: string) => {
+    removeItem(id);
+  };
+
   return (
     <div className={`${style["cart__fill__item"]}`}>
       <div className={`${style["cart__fill__description"]}`}>
@@ -19,7 +26,11 @@ export const PreviewCart = ({ price, howMany, name }: CartProduct) => {
         </div>
       </div>
 
-      <Icon name="close" className={`${style["cart__fill__icon__remove"]}`} />
+      <Icon
+        name="close"
+        className={`${style["cart__fill__icon__remove"]}`}
+        onClick={() => handleRemoveItem(id)}
+      />
     </div>
   );
 };

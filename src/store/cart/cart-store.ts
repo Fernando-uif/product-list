@@ -1,19 +1,33 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { Cart, CartProduct } from "../../interfaces";
+import { groupedDesserts } from "../../helpers/items/groupedDesserts";
 
 export const useCartStore = create<Cart>()(
   persist(
     (set, get) => ({
+      cart: [],
       getTotalItems: () => {
         const { cart } = get();
-        console.log(cart);
         return cart;
       },
-      cart: [],
       addProductToCart: (product: CartProduct) => {
         const { cart } = get();
-        set({ cart: [...cart, product] });
+        const newCart = [...cart, product];
+        console.log(newCart, "newcart");
+        const updatedCart = groupedDesserts(newCart);
+        set({ cart: updatedCart });
+
+        return;
+      },
+      removeProductCart: (productId: string) => {
+        const { cart } = get();
+        const allProducts = groupedDesserts(cart);
+        const filterProducts = allProducts.filter((product) => {
+          return product.id !== productId;
+        });
+        console.log(filterProducts, "filterproduct");
+        set({ cart: [...filterProducts] });
         return;
       },
     }),

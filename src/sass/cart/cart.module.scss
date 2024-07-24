@@ -96,12 +96,6 @@
                 display: block;
                 cursor: pointer;
                 align-self: center;
-                transition: transform .9s ease-in-out;
-                transform-origin: center;
-
-                &:hover {
-                    transform: rotate(2turn);
-                }
             }
         }
 
