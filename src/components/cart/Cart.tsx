@@ -1,14 +1,18 @@
-import style from "../../sass/cart/cart.module.scss";
+import { Children } from "react";
+
 import Icon from "../icons/Icon";
 import { PreviewCart } from "./PreviewCart";
 import { CartProduct } from "../../interfaces/cart/CartProduct.interface";
 import { formatPrice } from "../../helpers";
-import { Children } from "react";
 import { useToggleStore } from "../../store/cart/preview-store";
 
+import style from "../../sass/cart/cart.module.scss";
+
+
 export const Cart = ({ cartItems }: { cartItems: CartProduct[] }) => {
-  const total = cartItems.reduce((prev, curre) => prev + curre.price, 0);
+  const total = cartItems.reduce((prev, curre) => prev + curre?.price, 0);
   const handleToggle = useToggleStore((state) => state.setToggle);
+
   return (
     <section className={`${style["cart"]}`}>
       {cartItems.length ? (
@@ -21,10 +25,10 @@ export const Cart = ({ cartItems }: { cartItems: CartProduct[] }) => {
             cartItems.map((dessert: CartProduct) => {
               return (
                 <PreviewCart
-                  howMany={dessert.howMany}
-                  name={dessert.name}
-                  price={dessert.price}
-                  id={dessert.id}
+                  howMany={dessert?.howMany}
+                  name={dessert?.name}
+                  price={dessert?.price}
+                  id={dessert?.id}
                 />
               );
             })

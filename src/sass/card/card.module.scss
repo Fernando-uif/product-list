@@ -92,12 +92,12 @@
             border: 1px solid $price;
             transform: translateY(-5px);
 
-    }
+        }
 
         &__icon {
             width: 20px;
             height: 20px;
-           
+
         }
 
         &__text {
@@ -108,4 +108,41 @@
             line-height: normal;
         }
     }
+
+    &__validCount {
+        background-color: $button-order;
+        display: flex;
+        justify-content: space-between;
+
+        &__substract,
+        &__add {
+            width: 20px;
+            height: 20px;
+
+            &:hover svg path:last-child {
+                fill: Red;
+            }
+
+            &:hover {
+                background-color: #fff;
+                border-radius: 50%;
+            }
+        }
+
+
+
+        &:hover {
+            transform: unset;
+            color: unset;
+        }
+
+        &__count {
+            color: $light;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+
 }

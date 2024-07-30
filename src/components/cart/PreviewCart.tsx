@@ -5,7 +5,7 @@ import { useCartStore } from "../../store/cart/cart-store";
 import Icon from "../icons/Icon";
 
 export const PreviewCart = ({ price, howMany, name, id = "" }: CartProduct) => {
-  const removeItem = useCartStore((state) => state.removeProductCart);
+  const removeItem = useCartStore((state) => state.removeProduct);
 
   const handleRemoveItem = (id: string) => {
     removeItem(id);

@@ -3,6 +3,8 @@ export interface Cart {
   addProductToCart: (product: CartProduct) => void;
   removeProductCart: (productId: string) => void;
   getTotalItems: () => CartProduct[];
+  removeProduct: (productId: string) => void;
+  clearCart: () => void;
 }
 export interface CartProduct {
   id?: string;

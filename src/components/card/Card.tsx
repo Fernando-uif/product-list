@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { formatPrice } from "../../helpers";
 import { CartProduct } from "../../interfaces";
 import { DessertsProps } from "../../interfaces/Desserts.interface";
@@ -8,15 +7,15 @@ import Icon from "../icons/Icon";
 
 export const Card = ({ image, category, name, price, id }: DessertsProps) => {
   const addProductToCart = useCartStore((state) => state.addProductToCart);
-  const [count, setCount] = useState(0);
+  const getAllProducts = useCartStore((state) => state.getTotalItems());
+  const removeItem = useCartStore((state) => state.removeProductCart);
 
   const handleAddProduct = (product: CartProduct) => {
-    setCount((prev) => prev + 1);
-    
-    addProductToCart({ ...product, howMany: count, id: id ? id : "" });
-
+    addProductToCart({ ...product, howMany: 1, id });
   };
 
+  const isInside = getAllProducts.some((item) => item.id === id);
+  console.log(isInside, "existe");
   return (
     <div>
       <div className={`${style["card"]}`}>
@@ -34,11 +33,50 @@ export const Card = ({ image, category, name, price, id }: DessertsProps) => {
           />
         </figure>
         <button
-          className={`${style["card__button"]}`}
-          onClick={() => handleAddProduct({ howMany: 0, name, price, id: "" })}
+          className={`${style["card__button"]} ${
+            isInside ? style["card__validCount"] : ""
+          }`}
+          onClick={
+            !isInside
+              ? () => handleAddProduct({ howMany: 0, name, price, id: "" })
+              : undefined
+          }
         >
-          <Icon name="cart" className={`${style["card__button__icon"]}`} />
-          <span className={`${style["card__button__text"]}`}>Add to Cart</span>
+          {isInside ? (
+            getAllProducts.map((item) => {
+              if (item.id === id) {
+                return (
+                  <>
+                    <Icon
+                      name="substractItem"
+                      className={`${style["card__validCount__substract"]}`}
+                      onClick={() => removeItem(item.id || "")}
+                    />
+                    <span className={`${style["card__validCount__count"]}`}>
+                      {item.howMany}
+                    </span>
+                    <Icon
+                      name="addItem"
+                      className={`${style["card__validCount__add"]}`}
+                      onClick={() =>
+                        handleAddProduct({ howMany: 0, name, price, id: "" })
+                      }
+                    />
+                  </>
+                );
+              }
+            })
+          ) : (
+            <></>
+          )}
+          {!isInside && (
+            <>
+              <Icon name="cart" className={`${style["card__button__icon"]}`} />
+              <span className={`${style["card__button__text"]}`}>
+                Add to Cart
+              </span>
+            </>
+          )}
         </button>
       </div>
       <figcaption className={`${style["card__figcaption"]}`}>
