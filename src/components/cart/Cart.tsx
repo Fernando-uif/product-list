@@ -8,9 +8,11 @@ import { useToggleStore } from "../../store/cart/preview-store";
 
 import style from "../../sass/cart/cart.module.scss";
 
-
 export const Cart = ({ cartItems }: { cartItems: CartProduct[] }) => {
-  const total = cartItems.reduce((prev, curre) => prev + curre?.price, 0);
+  const total = cartItems.reduce(
+    (prev, curre) => prev + curre?.price * curre.howMany,
+    0
+  );
   const handleToggle = useToggleStore((state) => state.setToggle);
 
   return (
@@ -29,6 +31,7 @@ export const Cart = ({ cartItems }: { cartItems: CartProduct[] }) => {
                   name={dessert?.name}
                   price={dessert?.price}
                   id={dessert?.id}
+
                 />
               );
             })

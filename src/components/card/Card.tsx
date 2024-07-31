@@ -15,7 +15,6 @@ export const Card = ({ image, category, name, price, id }: DessertsProps) => {
   };
 
   const isInside = getAllProducts.some((item) => item.id === id);
-  console.log(isInside, "existe");
   return (
     <div>
       <div className={`${style["card"]}`}>
@@ -38,7 +37,8 @@ export const Card = ({ image, category, name, price, id }: DessertsProps) => {
           }`}
           onClick={
             !isInside
-              ? () => handleAddProduct({ howMany: 0, name, price, id: "" })
+              ? () =>
+                  handleAddProduct({ howMany: 0, name, price, id: "", image })
               : undefined
           }
         >
@@ -59,7 +59,13 @@ export const Card = ({ image, category, name, price, id }: DessertsProps) => {
                       name="addItem"
                       className={`${style["card__validCount__add"]}`}
                       onClick={() =>
-                        handleAddProduct({ howMany: 0, name, price, id: "" })
+                        handleAddProduct({
+                          howMany: 0,
+                          name,
+                          price,
+                          id: "",
+                          image,
+                        })
                       }
                     />
                   </>

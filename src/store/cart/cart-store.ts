@@ -5,7 +5,15 @@ import { Cart, CartProduct } from "../../interfaces";
 export const useCartStore = create<Cart>()(
   persist(
     (set, get) => ({
-      cart: [{ howMany: 0, name: "", price: 0, id: "" }],
+      cart: [
+        {
+          howMany: 0,
+          name: "",
+          price: 0,
+          id: "",
+          image: { thumbnail: "" },
+        },
+      ],
       getTotalItems: () => {
         const { cart } = get();
         return cart;

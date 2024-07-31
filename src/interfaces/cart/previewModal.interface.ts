@@ -1,4 +1,6 @@
 export interface PreviewModal {
-  isOpen: boolean;
-  setToggle: (active:boolean) => void;
+
+  isOther: boolean;
+  setToggle: (active: boolean) => void;
+  getIsOpen: () => boolean;
 }

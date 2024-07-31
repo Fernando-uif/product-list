@@ -11,4 +11,8 @@ export interface CartProduct {
   name: string;
   howMany: number;
   price: number;
+  image?: Image;
+}
+export interface Image {
+  thumbnail: string;
 }

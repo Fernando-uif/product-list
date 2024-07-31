@@ -13,7 +13,7 @@ import { useToggleStore } from "./store/cart/preview-store";
 function App() {
   const cart: CartProduct[] =
     useCartStore((state) => state?.getTotalItems()) || [];
-  const isOpen = useToggleStore((state) => state.isOpen);
+  const isOpen = useToggleStore((state) => state.getIsOpen());
 
   return (
     <>
