@@ -22,11 +22,11 @@ export const Card = ({ image, category, name, price, id }: DessertsProps) => {
           <img
             className={`${style["card__image"]}`}
             alt={name}
-            src={`./src/assets${image.tablet}`}
+            src={`./${image.tablet}`}
             srcSet={`
-               ./src/assets/${image.mobile} 833w,
-              ./src/assets/${image.tablet} 1279w,
-              ./src/assets/${image.desktop} 1280w
+               ./${image.mobile} 833w,
+              ./${image.tablet} 1279w,
+              ./${image.desktop} 1280w
             `}
             sizes="(max-width: 833px) 100vw, (max-width: 1279px) 100vw, 100vw"
           />

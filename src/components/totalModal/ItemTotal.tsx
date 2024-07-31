@@ -3,13 +3,13 @@ import { CartProduct } from "../../interfaces";
 import itemTotalStyle from "../../sass/totalModal/itemTotal.module.scss";
 
 export const ItemTotal = ({ item }: { item: CartProduct }) => {
-  console.log(item, "tenemos el item");
+
   return (
     <div className={`${itemTotalStyle["itemTotal"]}`}>
-      <div className={`${itemTotalStyle['itemTotal__imageText']}`}>
+      <div className={`${itemTotalStyle["itemTotal__imageText"]}`}>
         <figure>
           <img
-            src={`../src/assets/${item.image?.thumbnail}`}
+            src={`${item.image?.thumbnail}`}
             alt=""
             className={`${itemTotalStyle["itemTotal__image"]}`}
           />
